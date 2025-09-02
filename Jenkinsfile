@@ -16,7 +16,7 @@ pipeline
         stage('maven version check')
         {
             steps{
-                sh 'mvn --version'
+                sh 'jenkins --version'
             }
         }
 
