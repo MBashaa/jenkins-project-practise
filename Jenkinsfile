@@ -1,4 +1,4 @@
-pipeline
+/*pipeline
 {
     agent any
      stages{
@@ -37,4 +37,23 @@ pipeline
      }
 
 
+}
+*/
+
+pipeline 
+{
+    agent any
+    options{
+        timeout(time: 1, unit: 'MINUTES')
+        retry(2)
+    }
+
+    stages{
+
+        stage('stage1'){
+            steps{
+                sh 'sleep 70'
+            }
+        }
+    }
 }
