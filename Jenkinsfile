@@ -9,10 +9,12 @@ pipeline
                 withCredentials([userNamePassword(credentialsId: 'user-cred', usernameVariable: 'myusername', passwordVariable: 'mypassword')])
                 {
                     sh '''
-                            echo "my credentials are "
-                            echo "my username is: ${myusername}"
-                            echo "my passowrd is: ${mypassword}"
-
+                            ##echo "my credentials are "
+                            ##echo "my username is: ${myusername}"
+                            ##echo "my passowrd is: ${mypassword}"
+                            
+                            echo "my username is: $myusername"
+                            echo "my password is: $mypassword"
                     '''
                 }
             }
