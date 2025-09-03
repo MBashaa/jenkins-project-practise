@@ -3,20 +3,29 @@ pipeline
     agent any
     stages {
 
-        stage('git integration')
+        stage('nested stage')
         {
-            steps{
-                echo "Hello welcome to Jenkins practicals"
-                echo " git integrated successfully"
-                echo "added correct pay load url in github http://ipaddress:8080/github-webhook/"
-                echo "git integration plugin installed "
+            stages{
+                stage('inside stage 1')
+                {
+                    steps{
+                        echo "first stage inside nested stage"
+                    }
+                }
+                stage('inside stage 2')
+                {
+                    steps{
+                        echo "second stage inside nested stage"
+                    }
+                }
             }
+            
         }
 
-        stage('maven version check')
+        stage('stage2')
         {
             steps{
-                sh 'jenkins --version'
+                echo "lets deep dive in jenkins"
             }
         }
 
