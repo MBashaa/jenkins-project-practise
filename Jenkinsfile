@@ -2,30 +2,23 @@ pipeline
 {
     agent any
     stages {
-
-        stage('nested stage')
+   
+        stage('stage 1')
         {
-            parallel{
-                stage('inside stage 1')
-                {
-                    steps{
-                        echo "first stage inside nested stage"
-                    }
-                }
-                stage('inside stage 2')
-                {
-                    steps{
-                        echo "second stage inside nested stage"
-                    }
-                }
+            environment{
+                USER_NAME = "basha"
+                PASS_WORD = "password123"
             }
-            
+
+        steps{
+                echo "Hi I am ${USER_NAME} my password is: ${PASS_WORD}"
+             }         
         }
 
         stage('stage2')
         {
             steps{
-                echo "lets deep dive in jenkins"
+                echo "User in stage1 is : ${USER_NAME}"
             }
         }
 
