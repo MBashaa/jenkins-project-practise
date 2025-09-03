@@ -19,6 +19,21 @@ pipeline
                 }
             }
         }
+
+        stage('stage2 logging in another ec2 instance')
+        {
+            steps{
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'my_ssh_key', usernameVariable: 'myuser' )])
+                {
+                    sh '''
+                  
+                    ssh -i $my_ssh_key -o strictHostKeyChecking=no ${myuser}@172.31.16.107 "hostname"
+
+
+                    '''
+                }
+            }
+        }
      }
 
 
