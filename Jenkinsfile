@@ -5,7 +5,7 @@ pipeline
 
         stage('nested stage')
         {
-            stages{
+            parallel{
                 stage('inside stage 1')
                 {
                     steps{
