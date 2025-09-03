@@ -18,7 +18,7 @@ pipeline
         stage('stage2')
         {
             steps{
-                echo "User in stage1 is : ${USER_NAME}"
+                echo "this is stage 2"
             }
         }
 
