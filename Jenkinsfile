@@ -1,24 +1,25 @@
 pipeline
 {
     agent any
+    environment{
+        USER_NAME = "basha"
+        PWD = "pass123"
+        
+    }
     stages {
    
         stage('stage 1')
-        {
-            environment{
-                USER_NAME = "basha"
-                PASS_WORD = "password123"
-            }
-
+        {        
         steps{
-                echo "Hi I am ${USER_NAME} my password is: ${PASS_WORD}"
+                echo "printing username in stage1: ${USER_NAME}"
              }         
         }
 
         stage('stage2')
         {
             steps{
-                echo "this is stage 2"
+                echo "printing username in stage 2 as well: ${USER_NAME} and his password is: ${PWD}"
+                echo "these are called global environment variables can be applicable for all stages"
             }
         }
 
