@@ -6,7 +6,7 @@ pipeline
         {
             steps{
                 echo "global env with credenatils keyword"
-                withCredentials([userNamePassword(credentialsId: 'user-cred', usernameVariable: 'myusername', passwordVariable: 'mypassword')])
+                withCredentials([usernamePassword(credentialsId: 'user-cred', usernameVariable: 'myusername', passwordVariable: 'mypassword')])
                 {
                     sh '''
                             ##echo "my credentials are "
